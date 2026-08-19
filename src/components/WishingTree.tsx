@@ -285,6 +285,11 @@ export default function WishingTree() {
               <p className="mt-2 text-[11px] uppercase tracking-[0.34em] text-ivory/60">
                 wishes and counting
               </p>
+              {loaded && wishes.length === 0 && (
+                <p className="font-display mt-4 text-lg italic text-sage/90">
+                  The tree is bare — be the first to hang a blessing.
+                </p>
+              )}
             </div>
 
             <form onSubmit={onSubmit} className="mt-8" noValidate>

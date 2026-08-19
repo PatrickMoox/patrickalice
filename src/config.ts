@@ -1,29 +1,34 @@
 /* ============================================================
-   CONTENT CONFIG — everything you'll want to personalise lives
-   in this one file. Swap the sample values for your own.
-   Images are generated placeholders ([PHOTO]); drop your files
-   into /public/images and update the paths.
+   CONTENT CONFIG — everything personal lives in this one file.
+   Images are generated placeholders ([PHOTO]); drop your own
+   files into /public/images and update the paths.
    ============================================================ */
 
 export const SITE = {
-  // TODO: the couple's names
-  partner1Short: "Amara",
-  partner2Short: "Elias",
-  partner1Full: "Amara Rose Ellison",
-  partner2Full: "Elias James Thorne",
-  monogram: "A · E",
+  // the couple
+  partner1Short: "Aime Patrick",
+  partner2Short: "Alice",
+  partner1Full: "U. Aime Patrick",
+  partner2Full: "Ikirezi Alice",
+  monogram: "A & A",
 
-  // TODO: wedding date & time (local time of the venue)
-  weddingDate: "2026-10-17T15:00:00",
-  weddingDateLabel: "Saturday, the Seventeenth of October, Two Thousand Twenty-Six",
-  weddingDateShort: "17 . 10 . 2026",
+  // wedding date — 06 February 2027 (countdown targets the morning of the day)
+  weddingDate: "2027-02-06T09:00:00",
+  weddingDateLabel: "Saturday, the Sixth of February, Two Thousand Twenty-Seven",
+  weddingDateShort: "06 . 02 . 2027",
 
   // TODO: the day the couple started dating — powers the live "together for" counter
-  datingStart: "2019-06-14T18:30:00",
+  datingStart: "2021-02-14T18:00:00",
 
-  // TODO: your wedding hashtag
-  hashtag: "#AmaraAndElias",
-  venueShort: "The Grove at Willow Creek",
+  hashtag: "#AimeAndAlice",
+  venueShort: "Ubwiza Garden · Kagarama",
+  locationLine: "Kicukiro · Kagarama · Kigali, Rwanda",
+
+  // footer contacts
+  contacts: [
+    { name: "U. Aime Patrick", phone: "+250788360607", display: "+250 788 360 607" },
+    { name: "Ikirezi Alice", phone: "+250783822287", display: "+250 783 822 287" },
+  ],
 };
 
 /* WISHING TREE BACKEND ------------------------------------------------
@@ -42,102 +47,95 @@ export const WISH_API = ""; // e.g. "http://localhost:8787/api"
    PHOTOS — generated placeholders. Replace with real photos.
    ------------------------------------------------------------ */
 export const PHOTOS = {
-  hero: "https://image.qwenlm.ai/generated-images/7d874934-8690-4619-85cb-1e2ec668bbd1/_result.png",
-  partner1: "https://image.qwenlm.ai/generated-images/5145eb13-c12e-4a65-a8eb-01d77fedf32f/_result.png",
-  partner2: "https://image.qwenlm.ai/generated-images/06b99aef-2162-4156-8f0a-8576446fae34/_result.png",
-  met: "https://image.qwenlm.ai/generated-images/af18fe2f-1408-4fdc-8c69-1a4eb8e56fac/_result.png",
-  firstDate: "https://image.qwenlm.ai/generated-images/73acb184-2d28-4a20-ab61-0626d5127fd4/_result.png",
-  proposal: "https://image.qwenlm.ai/generated-images/39d81285-c432-45e9-92dc-7dce6194e7e6/_result.png",
-  rings: "https://image.qwenlm.ai/generated-images/44c37c32-4c03-4cf2-9e9a-309be0eb58ba/_result.png",
-  decor: "https://image.qwenlm.ai/generated-images/68023b33-4e4c-4fea-b7de-2698d7248289/_result.png",
+  hero: "https://image.qwenlm.ai/generated-images/ce766ec0-8f53-4981-9b2b-037cd0e18b8f/_result.png", // [PHOTO] ceremony aisle, no people
+  groomPortrait: "https://image.qwenlm.ai/generated-images/06b99aef-2162-4156-8f0a-8576446fae34/_result.png", // [PHOTO] groom portrait
+  bridePortrait: "https://image.qwenlm.ai/generated-images/5145eb13-c12e-4a65-a8eb-01d77fedf32f/_result.png", // [PHOTO] bride portrait
+  firstDate: "https://image.qwenlm.ai/generated-images/73acb184-2d28-4a20-ab61-0626d5127fd4/_result.png", // [PHOTO]
+  proposal: "https://image.qwenlm.ai/generated-images/39d81285-c432-45e9-92dc-7dce6194e7e6/_result.png", // [PHOTO]
+  rings: "https://image.qwenlm.ai/generated-images/44c37c32-4c03-4cf2-9e9a-309be0eb58ba/_result.png", // [PHOTO]
+  decor: "https://image.qwenlm.ai/generated-images/68023b33-4e4c-4fea-b7de-2698d7248289/_result.png", // [PHOTO]
 };
 
 /* ------------------------------------------------------------
-   1 · COUPLE — bios + "this or that" flip cards
+   1 · COUPLE — universal, humanised bios + flip cards
    ------------------------------------------------------------ */
 export const COUPLE = {
   p1: {
     name: SITE.partner1Short,
-    role: "The Bride", // TODO
-    photo: PHOTOS.partner1,
-    line: "Botanical illustrator, keeper of every ticket stub.",
-    bio: "Amara sketches ferns the way other people take notes. She cries at every wedding speech, grows herbs on every windowsill she's ever had, and has quietly been planning this day in a moss-green notebook since she was nine.",
-    loves: ["Peonies & rain", "Earl Grey, extra hot", "Old bookshops"],
+    role: "The Groom",
+    photo: PHOTOS.groomPortrait,
+    line: "The steady one — with the warmest laugh in the room.",
+    bio: "Aime Patrick is the kind of man people rely on without ever having to ask. Calm under pressure, generous with his time, and quietly romantic in ways he hopes no one notices — everyone notices. He has been counting down to this day far longer than he will ever admit.",
+    loves: ["Slow Sunday mornings", "Good music, played loud", "Time with family"],
   },
   p2: {
     name: SITE.partner2Short,
-    role: "The Groom", // TODO
-    photo: PHOTOS.partner2,
-    line: "Luthier, terrible pun enthusiast, excellent dance-floor diplomat.",
-    bio: "Elias builds violins by hand and believes most problems can be solved with a long walk or a short nap. He proposed with a ring he'd been hiding in a sock drawer for eight nerve-wracking months.",
-    loves: ["Trail runs at dawn", "Vinyl B-sides", "Amara's terrible jokes"],
+    role: "The Bride",
+    photo: PHOTOS.bridePortrait,
+    line: "The light of every room she walks into.",
+    bio: "Alice makes ordinary days feel like small celebrations. Thoughtful to a fault, quick to laugh, and fiercely loyal to the people she loves, she walks into this new chapter with an open heart — and a wedding playlist she has been saving for years.",
+    loves: ["Fresh flowers, always", "Deep conversations", "Dancing badly, happily"],
   },
   thisOrThat: [
-    { category: "First thing I noticed", p1: "His ink-stained fingers", p2: "The way she laughed mid-sentence" },
-    { category: "Favourite memory", p1: "Getting lost in Lisbon", p2: "The night the power went out" },
-    { category: "Ideal Sunday", p1: "Market, canvas, slow coffee", p2: "Trails, tools, takeaway" },
-    { category: "Song that's ours", p1: "“Sea of Love”", p2: "“First Day of My Life”" },
-    { category: "Who apologises first", p1: "Him — within minutes", p2: "Her — after a snack" },
-    { category: "Dream honeymoon", p1: "Kyoto in maple season", p2: "A cabin, no Wi-Fi, anywhere" },
+    { category: "First thing I noticed", p1: "Her smile", p2: "His confidence" },
+    { category: "Favourite memory", p1: "Our first long drive", p2: "The night we laughed till we cried" },
+    { category: "Ideal Sunday", p1: "Slow breakfast, no rush", p2: "Family, food & football" },
+    { category: "Song that's ours", p1: "The one we always skip to", p2: "The one he sings in the car" },
+    { category: "Who apologises first", p1: "Him — after one deep breath", p2: "Her — with food" },
+    { category: "Dream honeymoon", p1: "The beach, anywhere", p2: "A city we've never seen" },
   ],
 };
 
 /* ------------------------------------------------------------
-   2 · STORY — timeline milestones
+   2 · STORY — timeline milestones (no dates, no photos)
    ------------------------------------------------------------ */
 export const STORY = [
   {
-    date: "June 2019",
     title: "How we met",
-    text: "A rain-soaked Tuesday, one shared table at Fern & Fig café, and a borrowed pen he never asked for back. Two coffees became four hours.",
-    photo: PHOTOS.met,
-    alt: "Two coffee cups on a café table by a rainy window",
+    text: "An ordinary day, a simple hello, and a conversation neither of us wanted to end. Some stories don't start with fireworks — they start with the quiet feeling that you have known someone forever.",
   },
   {
-    date: "July 2019",
     title: "The first date",
-    text: "A picnic that was 60% ants and 40% nervous laughter in Meadow Park. We stayed until the fireflies came out and neither of us wanted to say goodnight.",
-    photo: PHOTOS.firstDate,
-    alt: "A couple laughing on a picnic blanket at golden hour",
+    text: "Nervous laughter, too much coffee, and a walk that lasted far longer than it should have. We both knew before the night was over — we just took our time admitting it.",
   },
   {
-    date: "March 2025",
     title: "The proposal",
-    text: "On the candlelit terrace at dusk — the one where we had our first anniversary dinner — Elias knelt. Amara said yes before he finished the question.",
-    photo: PHOTOS.proposal,
-    alt: "A proposal by candlelight in a garden at dusk",
+    text: "One knee, one ring, one question — and a yes before he could even finish asking. Surrounded by the people we love, it was the easiest decision we ever made.",
   },
   {
-    date: "October 2026",
     title: "The wedding",
-    text: "Under an arch of eucalyptus, surrounded by everyone we love, we promise it all forever. And then: cake, candles, and dancing until the stars go home.",
-    photo: PHOTOS.hero,
-    alt: "The couple beneath a greenery arch",
+    text: "On the 6th of February 2027, in Kicukiro, we promise it all — forever. Family, friends, music and dancing until the stars go home.",
   },
 ];
 
 /* ------------------------------------------------------------
-   3 · EVENTS — ceremony, reception, dress code, map
+   3 · EVENTS — one day, two locations in Kigali
    ------------------------------------------------------------ */
 export const EVENTS = {
-  ceremony: {
-    name: "The Ceremony",
-    time: "3:00 in the afternoon",
-    // TODO: real venue name + address
-    venue: "The Grove at Willow Creek",
-    address: "14 Orchard Lane, Willow Creek, Vermont",
-    note: "Vows beneath the old oak — arrive by 2:30 for garden lemonade.",
+  church: {
+    name: "Church Ceremony",
+    time: "9:00 in the evening",
+    venue: "Paroisse Saint Jean Bosco Kicukiro",
+    address: "24C7+Q4X, KK 21 Ave, Kigali",
+    note: "Holy matrimony before God, family and friends. Doors open from 8:15 in the evening.",
+  },
+  traditional: {
+    name: "Traditional Wedding",
+    time: "9:00 in the morning",
+    venue: "Ubwiza Garden, Kagarama",
+    address: "2437+HXF, KK 23 Ave, Kigali",
+    note: "The traditional ceremony — two families become one, and the celebration begins in full colour.",
   },
   reception: {
     name: "The Reception",
-    time: "5:30 until late",
-    venue: "The Glasshouse, Willow Creek",
-    address: "2 Mill Road, Willow Creek, Vermont",
-    note: "Long-table dinner, toasts, and dancing under the fairy lights.",
+    time: "6:00 in the evening",
+    venue: "Ubwiza Garden, Kagarama",
+    address: "2437+HXF, KK 23 Ave, Kigali",
+    note: "Dinner, toasts, cake and dancing under the lights — stay until the stars go home.",
   },
   dressCode: {
-    label: "Garden formal — sage, ivory & earthy neutrals",
-    note: "Think the colours of a greenhouse: soft greens, creams and warm stone. We kindly ask guests to skip pure white (that's ours!) and neon.",
+    label: "Green, white & neutral tones",
+    note: "Think the colours of a garden — sage, ivory, olive and cream. We kindly ask guests to skip pure white (that one is taken) and neon brights.",
     swatches: [
       { name: "Sage", hex: "#9DB29A" },
       { name: "Ivory", hex: "#F5F1E6" },
@@ -146,51 +144,40 @@ export const EVENTS = {
       { name: "Pine", hex: "#2E4636" },
     ],
   },
-  // TODO: venue address or coordinates for the embedded Google Map
-  mapQuery: "Stowe, Vermont",
+  // plus codes → Google Maps embeds
+  mapQueryChurch: "24C7+Q4X Kigali, Rwanda",
+  mapQueryGarden: "2437+HXF Kigali, Rwanda",
 };
 
 /* ------------------------------------------------------------
-   4 · GALLERY — masonry items with hover captions
+   4 · GALLERY — 6 photographs with hover captions
    ------------------------------------------------------------ */
 export const GALLERY = [
-  { src: PHOTOS.hero, caption: "Under the arch — our favourite frame of us", tall: true },
-  { src: PHOTOS.rings, caption: "Two thin bands of gold, chosen on a rainy Tuesday" },
-  { src: PHOTOS.firstDate, caption: "Meadow Park, and the picnic the ants audited" },
-  { src: PHOTOS.partner1, caption: "Amara, mid-laugh, eucalyptus in hand", tall: true },
-  { src: PHOTOS.decor, caption: "Candles, garlands, and 40 metres of linen" },
-  { src: PHOTOS.met, caption: "Fern & Fig — the table where it began", tall: true },
-  { src: PHOTOS.proposal, caption: "The terrace, the candles, the yes" },
-  { src: PHOTOS.partner2, caption: "Elias, pretending he wasn't nervous", tall: true },
+  { src: PHOTOS.hero, caption: "The aisle, dressed and waiting for its moment", tall: true },
+  { src: PHOTOS.rings, caption: "Two rings, one promise, a lifetime to keep it", tall: true },
+  { src: PHOTOS.decor, caption: "Candles, greenery, and every detail in between", tall: false },
+  { src: PHOTOS.bridePortrait, caption: "Alice — the bride, on her favourite morning", tall: true },
+  { src: PHOTOS.firstDate, caption: "One of the very first photos we ever took", tall: false },
+  { src: PHOTOS.proposal, caption: "The yes — and everything that came after it", tall: false },
 ];
 
 /* ------------------------------------------------------------
-   5 · WISHING TREE — sample wishes seeded on first visit so the
-   tree isn't bare. (Clearly marked: replace or delete freely.)
+   5 · WISHING TREE — starts from zero: no seeded wishes.
+   The tree grows purely from real guests.
    ------------------------------------------------------------ */
-export const SEED_WISHES = [
-  { name: "Grandma June", message: "Sixty years of marriage says: keep laughing at his puns. Love you both to the moon." },
-  { name: "Priya & Sam", message: "May your home always smell like fresh bread and eucalyptus." },
-  { name: "Noah", message: "Finally! I get my plus-one back. Wishing you endless slow Sundays." },
-  { name: "Aunt Cecile", message: "May your love grow wilder than Amara's windowsill garden." },
-  { name: "The Hendersons", message: "From the first coffee to forever — we're so glad you found each other." },
-  { name: "Maya", message: "Dance like nobody's watching, love like it's the first day. Congrats!" },
-  { name: "Grandpa Al", message: "Advice: two words. 'Yes, dear.' Works every time." },
-  { name: "Iris & Tom", message: "May every season of you two be greener than the last." },
-  { name: "Beatrice", message: "Save us a seat at the golden anniversary. We plan to be there." },
-];
+export const SEED_WISHES: { name: string; message: string }[] = [];
 
 /* ------------------------------------------------------------
    FOOTER — thank-you note + hidden easter-egg trivia
    ------------------------------------------------------------ */
 export const FOOTER = {
   thanks:
-    "Thank you for being part of our story. Whether you're travelling across oceans or across the street, having you under one roof — even for a day — is the greatest gift we could ask for.",
+    "Thank you for being part of our story. Whether you are travelling from far away or from just down the road, having you with us on this day is the greatest gift we could ever ask for.",
   funFacts: [
-    "Secret trivia №1 — Elias hid the engagement ring in a sock drawer for 8 months. Amara found it in week 2 and said nothing. For 8 months.",
-    "Secret trivia №2 — They've shared an estimated 1,214 cups of coffee. The café where they met still saves them the window table.",
-    "Secret trivia №3 — Their first kiss happened during a fire alarm. The building was fine. The butterflies were not.",
-    "Secret trivia №4 — Amara has a moss-green notebook with this exact wedding planned in it since 2011. Elias is only allowed to see it after the cake.",
+    "Secret trivia №1 — He rehearsed the proposal speech in the mirror for weeks… and still forgot every single word.",
+    "Secret trivia №2 — Their first “I love you” was said twice: once by accident, once on purpose.",
+    "Secret trivia №3 — She has had the wedding playlist ready for years. He is only allowed to hear it after the first dance.",
+    "Secret trivia №4 — Between the two of them, they have changed their minds about the honeymoon exactly eleven times. It's still a secret.",
   ],
   eggHint: "You found the hidden ring!",
 };

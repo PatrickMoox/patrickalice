@@ -125,13 +125,13 @@ export default function Hero() {
         <div className="mt-7 flex items-center justify-center gap-4 text-ivory/85">
           <Sprig className="w-10 text-sage sm:w-14" />
           <p className="text-[11px] font-light uppercase tracking-[0.3em] sm:text-xs">
-            <span className="sm:hidden">Saturday · October 17, 2026</span>
+            <span className="sm:hidden">Saturday · {SITE.weddingDateShort}</span>
             <span className="hidden sm:inline">{SITE.weddingDateLabel}</span>
           </p>
           <Sprig className="w-10 -scale-x-100 text-sage sm:w-14" />
         </div>
         <p className="mt-2 text-[11px] font-light uppercase tracking-[0.3em] text-ivory/60">
-          {SITE.venueShort} · Vermont {/* TODO: venue location */}
+          {SITE.locationLine}
         </p>
 
         {/* countdown to the wedding */}

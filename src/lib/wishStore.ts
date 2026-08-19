@@ -17,7 +17,7 @@ export interface Wish {
   ts: number; // epoch ms
 }
 
-const KEY = "ae-wishing-tree-v1";
+const KEY = "pa-wishing-tree-v1"; // fresh key → tree starts from zero for everyone
 
 function readLocal(): Wish[] | null {
   try {

@@ -82,6 +82,27 @@ export default function Footer() {
           — {SITE.partner1Full} &amp; {SITE.partner2Full}
         </p>
 
+        {/* contact numbers */}
+        <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-10">
+          {SITE.contacts.map((c) => (
+            <a
+              key={c.phone}
+              href={`tel:${c.phone}`}
+              className="group inline-flex items-center gap-2.5 text-sm font-light text-ivory/75 transition-colors hover:text-sage"
+            >
+              <span className="flex h-8 w-8 items-center justify-center rounded-full border border-ivory/25 transition-colors group-hover:border-sage">
+                <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="1.4" aria-hidden="true">
+                  <path d="M5 4h4l2 5-2.5 1.5a12 12 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </span>
+              <span>
+                <span className="block text-[9px] uppercase tracking-[0.26em] text-ivory/45">{c.name}</span>
+                <span className="tabular-nums">{c.display}</span>
+              </span>
+            </a>
+          ))}
+        </div>
+
         {/* decorative leaf divider */}
         <div className="mt-10 flex items-center justify-center gap-4 text-sage/70" aria-hidden="true">
           <span className="h-px w-16 bg-ivory/15 sm:w-28" />
