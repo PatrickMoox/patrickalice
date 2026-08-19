@@ -91,22 +91,20 @@ export default function Hero() {
           </span>
         </h1>
 
-        {/* date line */}
-        <div className="mt-7 flex items-center justify-center gap-4 text-ivory/85">
-          <Sprig className="w-10 text-sage sm:w-14" />
-          <p className="text-[11px] font-light uppercase tracking-[0.3em] sm:text-xs">
-            <span className="sm:hidden">Saturday · {SITE.weddingDateShort}</span>
-            <span className="hidden sm:inline">{SITE.weddingDateLabel}</span>
+        {/* date line — the invitation's headline date, in warm gold serif */}
+        <div className="mt-8 flex flex-col items-center gap-3 px-4 text-center">
+          <Sprig className="w-16 text-gold/80" />
+          <p className="font-display text-2xl font-medium italic leading-snug text-gold drop-shadow-[0_2px_12px_rgba(34,49,42,0.5)] sm:text-3xl lg:text-[34px]">
+            {SITE.weddingDateLabel}
           </p>
-          <Sprig className="w-10 -scale-x-100 text-sage sm:w-14" />
         </div>
-        <p className="mt-2 text-[11px] font-light uppercase tracking-[0.3em] text-ivory/60">
-          {SITE.locationLine}
+        <p className="mt-3 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-sm font-normal uppercase tracking-[0.28em] text-ivory sm:text-base">
+          <span>{SITE.locationLine}</span>
         </p>
 
         {/* countdown to the wedding */}
         <div className="mt-10">
-          <p className="text-[10px] uppercase tracking-[0.38em] text-ivory/60">
+          <p className="text-xs font-medium uppercase tracking-[0.34em] text-gold sm:text-sm">
             {cd ? "Counting down to forever" : "Happily married"}
           </p>
           {cd ? (
