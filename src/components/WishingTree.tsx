@@ -7,7 +7,7 @@
    ============================================================ */
 import { useEffect, useMemo, useRef, useState } from "react";
 import { SITE } from "../config";
-import { loadWishes, newWishId, saveWish, type Wish } from "../lib/wishStore";
+import { loadWishes, newWishId, saveWish, subscribeWishes, type Wish } from "../lib/wishStore";
 import LeafCanvas from "./LeafCanvas";
 import { Reveal, SectionHeading, usePrefersReducedMotion } from "../lib/kit";
 
@@ -102,6 +102,9 @@ export default function WishingTree() {
       setLoaded(true);
     });
   }, []);
+
+  /* live sync — leaves other guests hang appear here in real time */
+  useEffect(() => subscribeWishes((remote) => setWishes(remote)), []);
 
   const anchorFor = (index: number) => ANCHORS[index % ANCHORS.length];
   const leafStyle = useMemo(() => new Map<string, { color: string; jr: number; dur: string; delay: string }>(), []);

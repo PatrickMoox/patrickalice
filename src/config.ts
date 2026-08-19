@@ -41,6 +41,18 @@ export const SITE = {
    …then set WISH_API below to "http://localhost:8787/api" (or your
    deployed URL). The client syncs automatically and falls back to
    local storage if the API is unreachable.                          */
+/* FIREBASE REALTIME DATABASE (recommended — free, no credit card) -----
+   1. console.firebase.google.com → Add project (any name) → create.
+   2. Build → Realtime Database → Create Database → test mode.
+   3. Rules tab → publish:  { "rules": { ".read": true, ".write": true } }
+      (test-mode rules expire after 30 days — publishing these makes
+       the tree work forever.)
+   4. Copy the database URL shown at the top of the database page and
+      paste it below, e.g.
+      "https://aime-and-alice-default-rtdb.europe-west1.firebasedatabase.app"
+   The tree then syncs live between ALL visitors, from any host.     */
+export const FIREBASE_RTDB_URL = ""; // ← paste your Firebase database URL here
+
 export const WISH_API = ""; // e.g. "http://localhost:8787/api"
 
 /* ------------------------------------------------------------
