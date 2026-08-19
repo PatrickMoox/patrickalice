@@ -156,16 +156,20 @@ export const EVENTS = {
 };
 
 /* ------------------------------------------------------------
-   4 · GALLERY — 6 photographs with hover captions.
-   "fallback" is shown automatically if the main URL is blocked.
+   4 · GALLERY — 5 real photographs from Google Drive.
+   Files must be shared as "anyone with the link".
+   "fallback" is shown automatically if Drive blocks an embed.
+   Captions are warm placeholders — tune each to its photo.
    ------------------------------------------------------------ */
+/** turns a Google Drive file ID into a direct image URL */
+const drive = (fileId: string) => `https://lh3.googleusercontent.com/d/${fileId}`;
+
 export const GALLERY: { src: string; fallback?: string; caption: string; tall: boolean }[] = [
-  { src: PHOTOS.hero, caption: "The aisle, dressed and waiting for its moment", tall: true },
-  { src: PHOTOS.rings, caption: "Two rings, one promise, a lifetime to keep it", tall: true },
-  { src: PHOTOS.decor, caption: "Candles, greenery, and every detail in between", tall: false },
-  { src: PHOTOS.bridePortrait, fallback: PHOTOS.brideFallback, caption: "Alice — the bride, on her favourite morning", tall: true },
-  { src: PHOTOS.firstDate, caption: "One of the very first photos we ever took", tall: false },
-  { src: PHOTOS.proposal, caption: "The yes — and everything that came after it", tall: false },
+  { src: drive("1KXRnZfhM056gnnWzg3p5Xr0Npc77lspl"), fallback: PHOTOS.hero, caption: "Two hearts, one beginning — captured to keep forever", tall: true },
+  { src: drive("1vv6yGQ094mIHj1oHQ9bNTgaOxhblmyiF"), fallback: PHOTOS.rings, caption: "The quiet little moments between the big ones", tall: false },
+  { src: drive("1MuE32SseBbqf5jYIplkuq3MLRsBidWNj"), fallback: PHOTOS.decor, caption: "Dressed in love, surrounded by green", tall: true },
+  { src: drive("1QKj0ikTyGsTQoKzqTzEGoEkmeDup8ANB"), fallback: PHOTOS.firstDate, caption: "Laughter — the true soundtrack of our story", tall: false },
+  { src: drive("1wR-cQvs2K7512gfJqFQgp-AwQdknzJa2"), fallback: PHOTOS.proposal, caption: "Hand in hand, from Kicukiro to forever", tall: true },
 ];
 
 /* ------------------------------------------------------------
