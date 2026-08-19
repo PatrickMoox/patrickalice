@@ -20,9 +20,6 @@ export const SITE = {
   weddingDateLabel: "Saturday, the Sixth of February, Two Thousand Twenty-Seven",
   weddingDateShort: "06 . 02 . 2027",
 
-  // TODO: the day the couple started dating — powers the live "together for" counter
-  datingStart: "2021-02-14T18:00:00",
-
   hashtag: "#AimeAndAlice",
   venueShort: "Ubwiza Garden · Kagarama",
   locationLine: "Kicukiro · Kagarama · Kigali, Rwanda",
@@ -51,8 +48,14 @@ export const WISH_API = ""; // e.g. "http://localhost:8787/api"
    ------------------------------------------------------------ */
 export const PHOTOS = {
   hero: "https://image.qwenlm.ai/generated-images/ce766ec0-8f53-4981-9b2b-037cd0e18b8f/_result.png", // [PHOTO] ceremony aisle, no people
-  groomPortrait: "https://image.qwenlm.ai/generated-images/06b99aef-2162-4156-8f0a-8576446fae34/_result.png", // [PHOTO] groom portrait
-  bridePortrait: "https://image.qwenlm.ai/generated-images/5145eb13-c12e-4a65-a8eb-01d77fedf32f/_result.png", // [PHOTO] bride portrait
+  /* couple photos — real photos, served from Google Drive
+     (shared as "anyone with the link"). If Drive blocks the
+     embed, the page automatically falls back to the portrait
+     placeholders below — no broken images, ever.            */
+  groomPortrait: "https://lh3.googleusercontent.com/d/1tu1xs5bCCqO7_rzOZBLX7jtLgA4-lUts",
+  groomFallback: "https://image.qwenlm.ai/generated-images/06b99aef-2162-4156-8f0a-8576446fae34/_result.png",
+  bridePortrait: "https://lh3.googleusercontent.com/d/1buO8pGu2LUb0HJduneC2tt82v86pYAtX",
+  brideFallback: "https://image.qwenlm.ai/generated-images/5145eb13-c12e-4a65-a8eb-01d77fedf32f/_result.png",
   firstDate: "https://image.qwenlm.ai/generated-images/73acb184-2d28-4a20-ab61-0626d5127fd4/_result.png", // [PHOTO]
   proposal: "https://image.qwenlm.ai/generated-images/39d81285-c432-45e9-92dc-7dce6194e7e6/_result.png", // [PHOTO]
   rings: "https://image.qwenlm.ai/generated-images/44c37c32-4c03-4cf2-9e9a-309be0eb58ba/_result.png", // [PHOTO]
