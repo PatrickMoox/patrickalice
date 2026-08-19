@@ -156,20 +156,21 @@ export const EVENTS = {
 };
 
 /* ------------------------------------------------------------
-   4 · GALLERY — 5 real photographs from Google Drive.
+   4 · GALLERY — 6 real photographs from Google Drive.
    Files must be shared as "anyone with the link".
    "fallback" is shown automatically if Drive blocks an embed.
-   Captions are warm placeholders — tune each to its photo.
+   Captions sit next to each link — tune any of them freely.
    ------------------------------------------------------------ */
 /** turns a Google Drive file ID into a direct image URL */
 const drive = (fileId: string) => `https://lh3.googleusercontent.com/d/${fileId}`;
 
 export const GALLERY: { src: string; fallback?: string; caption: string; tall: boolean }[] = [
-  { src: drive("1KXRnZfhM056gnnWzg3p5Xr0Npc77lspl"), fallback: PHOTOS.hero, caption: "Two hearts, one beginning — captured to keep forever", tall: true },
+  { src: drive("1c-U5W8AzIY-gGhCRabYGt-e53IxdWJ30"), fallback: PHOTOS.hero, caption: "Where it all began — the smile we never forgot", tall: true },
   { src: drive("1vv6yGQ094mIHj1oHQ9bNTgaOxhblmyiF"), fallback: PHOTOS.rings, caption: "The quiet little moments between the big ones", tall: false },
   { src: drive("1MuE32SseBbqf5jYIplkuq3MLRsBidWNj"), fallback: PHOTOS.decor, caption: "Dressed in love, surrounded by green", tall: true },
   { src: drive("1QKj0ikTyGsTQoKzqTzEGoEkmeDup8ANB"), fallback: PHOTOS.firstDate, caption: "Laughter — the true soundtrack of our story", tall: false },
   { src: drive("1wR-cQvs2K7512gfJqFQgp-AwQdknzJa2"), fallback: PHOTOS.proposal, caption: "Hand in hand, from Kicukiro to forever", tall: true },
+  { src: drive("1pBE-xmtS7YRsJT0OE9vzzGmzbXdPvxEY"), fallback: PHOTOS.rings, caption: "And so, the adventure begins", tall: false },
 ];
 
 /* ------------------------------------------------------------
