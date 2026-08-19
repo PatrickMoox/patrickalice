@@ -3,7 +3,7 @@
    "This or That" flip cards (hover on desktop, tap on mobile).
    ============================================================ */
 import { useState } from "react";
-import { COUPLE, SITE } from "../config";
+import { COUPLE, PHOTOS, SITE } from "../config";
 import { LeafShape, Reveal, SectionHeading, Sprig } from "../lib/kit";
 
 interface PartnerProps {
@@ -24,6 +24,11 @@ function Partner({ data, flip = false, delay = 0 }: PartnerProps) {
               src={data.photo}
               alt={`Portrait of ${data.name}`}
               loading="lazy"
+              onError={(e) => {
+                const img = e.currentTarget;
+                const fb = data.name === COUPLE.p1.name ? PHOTOS.groomFallback : PHOTOS.brideFallback;
+                if (fb && img.src !== fb) img.src = fb;
+              }}
               className="aspect-[4/5] w-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-[1.04]"
             />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-pine/25 via-transparent to-transparent" />

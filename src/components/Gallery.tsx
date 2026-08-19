@@ -59,6 +59,10 @@ export default function Gallery() {
                     src={g.src}
                     alt={g.caption}
                     loading="lazy"
+                    onError={(e) => {
+                      const img = e.currentTarget;
+                      if (g.fallback && img.src !== g.fallback) img.src = g.fallback;
+                    }}
                     className={`w-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-[1.06] ${
                       g.tall ? "aspect-[3/4]" : "aspect-[4/3]"
                     }`}
@@ -123,6 +127,11 @@ export default function Gallery() {
               src={GALLERY[lightbox].src}
               alt={GALLERY[lightbox].caption}
               className="max-h-[74vh] max-w-full border-4 border-ivory/90 object-contain shadow-2xl"
+              onError={(e) => {
+                const img = e.currentTarget;
+                const fb = GALLERY[lightbox].fallback;
+                if (fb && img.src !== fb) img.src = fb;
+              }}
             />
             <figcaption className="mt-5 text-center">
               <p className="font-display text-xl italic text-ivory">{GALLERY[lightbox].caption}</p>

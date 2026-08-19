@@ -1,7 +1,7 @@
 /* ============================================================
    1 · HOME — full-bleed hero styled like a wedding invitation:
-   Ken Burns photo, drifting leaves, corner flourishes, the
-   countdown to the wedding and a live "together for" counter.
+   Ken Burns photo, drifting leaves, corner flourishes and the
+   live countdown to the wedding day.
    ============================================================ */
 import { useEffect, useMemo, useState, type CSSProperties } from "react";
 import { SITE, PHOTOS } from "../config";
@@ -22,50 +22,20 @@ function countdownTo(target: Date, now: Date) {
   };
 }
 
-/** calendar-accurate years/months/days + ticking remainder hh:mm:ss */
-function togetherFor(start: Date, now: Date) {
-  let y = now.getFullYear() - start.getFullYear();
-  let m = now.getMonth() - start.getMonth();
-  let d = now.getDate() - start.getDate();
-  if (d < 0) {
-    m -= 1;
-    d += new Date(now.getFullYear(), now.getMonth(), 0).getDate();
-  }
-  if (m < 0) {
-    y -= 1;
-    m += 12;
-  }
-  const anchor = new Date(start.getFullYear() + y, start.getMonth() + m, start.getDate() + d, start.getHours(), start.getMinutes(), start.getSeconds());
-  let rem = Math.max(0, now.getTime() - anchor.getTime());
-  if (rem < 0) rem = 0;
-  return {
-    y,
-    m,
-    d,
-    h: Math.floor(rem / 3_600_000),
-    min: Math.floor((rem / 60_000) % 60),
-    s: Math.floor((rem / 1_000) % 60),
-  };
-}
-
-const plural = (n: number, word: string) => `${n} ${word}${n === 1 ? "" : "s"}`;
-
 export default function Hero() {
   const [now, setNow] = useState(() => new Date());
   const [par, setPar] = useState({ x: 0, y: 0 });
   const reduced = usePrefersReducedMotion();
 
   const wedding = useMemo(() => new Date(SITE.weddingDate), []);
-  const dating = useMemo(() => new Date(SITE.datingStart), []);
 
-  /* one clock drives both counters */
+  /* one clock drives the countdown */
   useEffect(() => {
     const t = setInterval(() => setNow(new Date()), 1000);
     return () => clearInterval(t);
   }, []);
 
   const cd = countdownTo(wedding, now);
-  const tg = togetherFor(dating, now);
 
   /* gentle pointer parallax on the invitation frame (desktop, motion-safe) */
   const onMouseMove = (e: React.MouseEvent) => {
@@ -159,25 +129,6 @@ export default function Hero() {
           ) : (
             <p className="font-script mt-3 text-3xl text-sage">forever &amp; a day</p>
           )}
-        </div>
-
-        {/* live "together for" counter — the playful companion */}
-        <div className="mt-8 flex flex-col items-center gap-1.5">
-          <p className="flex items-center gap-2 text-[10px] uppercase tracking-[0.38em] text-ivory/60">
-            <span className="inline-block h-3.5 w-3.5 text-sage">
-              <LeafShape fill="currentColor" />
-            </span>
-            Together for
-          </p>
-          <p className="font-display text-lg italic text-ivory sm:text-2xl">
-            {plural(tg.y, "year")}, {plural(tg.m, "month")} &amp; {plural(tg.d, "day")}
-            <span className="ml-2 font-body text-sm not-italic tracking-[0.18em] text-ivory/70 sm:text-base tabular-nums">
-              · {pad(tg.h)}:{pad(tg.min)}:{pad(tg.s)}
-            </span>
-          </p>
-          <p className="text-[10px] font-light uppercase tracking-[0.3em] text-ivory/45">
-            since {new Date(SITE.datingStart).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}
-          </p>
         </div>
       </div>
 

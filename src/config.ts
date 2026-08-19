@@ -141,7 +141,7 @@ export const EVENTS = {
   },
   dressCode: {
     label: "Green, white & neutral tones",
-    note: "Think the colours of a garden — sage, ivory, olive and cream. We kindly ask guests to skip pure white (that one is taken) and neon brights.",
+    note: "We would love to see the day in the colours of a garden — soft sage, ivory, olive and cream. Come in whatever makes you feel most beautiful; these tones simply help our photographs sing together.",
     swatches: [
       { name: "Sage", hex: "#9DB29A" },
       { name: "Ivory", hex: "#F5F1E6" },
@@ -156,13 +156,14 @@ export const EVENTS = {
 };
 
 /* ------------------------------------------------------------
-   4 · GALLERY — 6 photographs with hover captions
+   4 · GALLERY — 6 photographs with hover captions.
+   "fallback" is shown automatically if the main URL is blocked.
    ------------------------------------------------------------ */
-export const GALLERY = [
+export const GALLERY: { src: string; fallback?: string; caption: string; tall: boolean }[] = [
   { src: PHOTOS.hero, caption: "The aisle, dressed and waiting for its moment", tall: true },
   { src: PHOTOS.rings, caption: "Two rings, one promise, a lifetime to keep it", tall: true },
   { src: PHOTOS.decor, caption: "Candles, greenery, and every detail in between", tall: false },
-  { src: PHOTOS.bridePortrait, caption: "Alice — the bride, on her favourite morning", tall: true },
+  { src: PHOTOS.bridePortrait, fallback: PHOTOS.brideFallback, caption: "Alice — the bride, on her favourite morning", tall: true },
   { src: PHOTOS.firstDate, caption: "One of the very first photos we ever took", tall: false },
   { src: PHOTOS.proposal, caption: "The yes — and everything that came after it", tall: false },
 ];
