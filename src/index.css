@@ -1,1 +1,193 @@
 @import "tailwindcss";
+
+/* ============================================================
+   THEME — sage & ivory wedding palette + type pairing
+   ============================================================ */
+@theme {
+  --font-display: "Cormorant Garamond", "Times New Roman", serif;
+  --font-body: "Jost", "Avenir Next", "Segoe UI", sans-serif;
+  --font-script: "Great Vibes", cursive;
+
+  --color-ink: #22312a;      /* deep green ink for body text   */
+  --color-pine: #2e4636;     /* primary deep green             */
+  --color-fern: #57715a;     /* mid green                      */
+  --color-moss: #6f8a6e;     /* muted accent green             */
+  --color-sage: #9db29a;     /* signature sage                 */
+  --color-mist: #dce5d8;     /* pale sage wash                 */
+  --color-ivory: #faf8f0;    /* base background                */
+  --color-cream: #f1ede0;    /* alternate soft background      */
+  --color-gold: #b9986a;     /* tiny warm accent (rings, &)    */
+  --color-blush: #e9e4d4;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-ivory);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-sage);
+  color: var(--color-ivory);
+}
+
+/* thin, elegant scrollbar */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--color-ivory); }
+::-webkit-scrollbar-thumb { background: var(--color-sage); border-radius: 8px; border: 3px solid var(--color-ivory); }
+
+/* ============================================================
+   GRAIN OVERLAY — soft paper texture over the whole page
+   ============================================================ */
+.grain::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+}
+
+/* ============================================================
+   SCROLL REVEALS — soft, scroll-triggered entrances
+   ============================================================ */
+.rv {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.9s ease,
+    transform 1s cubic-bezier(0.22, 0.61, 0.2, 1);
+  transition-delay: var(--rv-delay, 0ms);
+  will-change: opacity, transform;
+}
+.rv.rv-left  { transform: translateX(-38px); }
+.rv.rv-right { transform: translateX(38px); }
+.rv.rv-scale { transform: scale(0.94); }
+.rv.is-in { opacity: 1; transform: none; }
+
+/* line-mask reveal for display headings */
+.mask-line { display: block; overflow: hidden; padding-bottom: 0.08em; }
+.mask-line > span {
+  display: block;
+  transform: translateY(112%);
+  transition: transform 1.05s cubic-bezier(0.22, 0.61, 0.2, 1);
+  transition-delay: var(--rv-delay, 0ms);
+}
+.rv.is-in .mask-line > span { transform: translateY(0); }
+
+/* ============================================================
+   KEYFRAMED AMBIENT MOTION
+   ============================================================ */
+@keyframes kenburns {
+  0%   { transform: scale(1.02) translate(0, 0); }
+  100% { transform: scale(1.12) translate(-1.2%, -1.4%); }
+}
+.kenburns { animation: kenburns 26s ease-in-out infinite alternate; }
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marquee 32s linear infinite;
+  width: max-content;
+}
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(9px) rotate(-8deg); }
+}
+.bob { animation: bob 2.6s ease-in-out infinite; }
+
+/* wish leaves gently sway on their stems */
+@keyframes sway {
+  from { transform: rotate(calc(var(--sway-rot, 0deg) - 4deg)); }
+  to   { transform: rotate(calc(var(--sway-rot, 0deg) + 4deg)); }
+}
+.wish-leaf {
+  transform-box: fill-box;
+  transform-origin: 50% 8%;
+  animation: sway var(--sway-dur, 3.4s) ease-in-out infinite alternate;
+  animation-delay: var(--sway-delay, 0s);
+}
+/* a freshly hung leaf pops in AND keeps swaying */
+.wish-leaf.pop-in {
+  animation:
+    pop-in 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both,
+    sway var(--sway-dur, 3.4s) ease-in-out var(--sway-delay, 0s) infinite alternate;
+}
+
+@keyframes pop-in {
+  0%   { transform: scale(0); opacity: 0; }
+  60%  { transform: scale(1.35); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.pop-in { animation: pop-in 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+
+@keyframes count-pop {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.18); color: var(--color-fern); }
+  100% { transform: scale(1); }
+}
+.count-pop { animation: count-pop 0.6s ease-out; }
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+.pulse-soft { animation: pulse-soft 2.4s ease-in-out infinite; }
+
+@keyframes eq1 { 0%,100%{height:30%} 50%{height:95%} }
+@keyframes eq2 { 0%,100%{height:80%} 50%{height:35%} }
+@keyframes eq3 { 0%,100%{height:50%} 50%{height:100%} }
+.eq-bar { animation: eq1 1s ease-in-out infinite; }
+.eq-bar:nth-child(2) { animation-name: eq2; animation-duration: 1.3s; }
+.eq-bar:nth-child(3) { animation-name: eq3; animation-duration: 0.8s; }
+
+/* hand-drawn timeline path draws itself in */
+.timeline-path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 2.8s ease-in-out 0.3s;
+}
+.timeline-path.is-in { stroke-dashoffset: 0; }
+
+/* ============================================================
+   FLIP CARDS — "this or that"
+   ============================================================ */
+.flip { perspective: 1100px; }
+.flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+.flip.flipped .flip-inner,
+.flip:hover .flip-inner { transform: rotateY(180deg); }
+.flip-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.flip-back { transform: rotateY(180deg); }
+
+/* ============================================================
+   REDUCED MOTION — calm everything down
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .rv, .rv.rv-left, .rv.rv-right, .rv.rv-scale { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .mask-line > span { transform: none !important; transition: none !important; }
+  .kenburns, .marquee-track, .bob, .wish-leaf, .pop-in, .count-pop, .pulse-soft, .eq-bar { animation: none !important; }
+  .timeline-path { stroke-dashoffset: 0 !important; transition: none !important; }
+  .flip-inner { transition: none !important; }
+}
