@@ -8,9 +8,12 @@ export const SITE = {
   // the couple
   partner1Short: "Aime Patrick",
   partner2Short: "Alice",
-  partner1Full: "U. Aime Patrick",
+  partner1Full: "Uwimpuhwe Aime Patrick",
   partner2Full: "Ikirezi Alice",
-  monogram: "A & A",
+  // full names shown on the first page
+  heroName1: "U. Aime Patrick",
+  heroName2: "Ikirezi Alice",
+  monogram: "P & A",
 
   // wedding date — 06 February 2027 (countdown targets the morning of the day)
   weddingDate: "2027-02-06T09:00:00",
@@ -26,7 +29,7 @@ export const SITE = {
 
   // footer contacts
   contacts: [
-    { name: "U. Aime Patrick", phone: "+250788360607", display: "+250 788 360 607" },
+    { name: "Uwimpuhwe Aime Patrick", phone: "+250788360607", display: "+250 788 360 607" },
     { name: "Ikirezi Alice", phone: "+250783822287", display: "+250 783 822 287" },
   ],
 };
@@ -114,10 +117,10 @@ export const STORY = [
 export const EVENTS = {
   church: {
     name: "Church Ceremony",
-    time: "9:00 in the evening",
+    time: "3:00 in the afternoon",
     venue: "Paroisse Saint Jean Bosco Kicukiro",
     address: "24C7+Q4X, KK 21 Ave, Kigali",
-    note: "Holy matrimony before God, family and friends. Doors open from 8:15 in the evening.",
+    note: "Holy matrimony before God, family and friends. Doors open from 2:15 in the afternoon.",
   },
   traditional: {
     name: "Traditional Wedding",

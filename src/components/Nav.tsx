@@ -82,14 +82,14 @@ export default function Nav() {
         }`}
       >
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:h-[72px] sm:px-8">
-          {/* monogram */}
+          {/* monogram logo */}
           <button onClick={() => goTo("home")} className="group flex items-center gap-2.5" aria-label="Back to top">
             <span
-              className={`font-script text-2xl leading-none transition-colors duration-500 sm:text-[27px] ${
+              className={`font-script text-[26px] leading-none tracking-wide transition-colors duration-500 sm:text-[29px] ${
                 solid ? "text-pine group-hover:text-fern" : "text-ivory group-hover:text-mist"
               }`}
             >
-              {SITE.partner1Short} <span className="font-display italic">&amp;</span> {SITE.partner2Short}
+              P<span className={`font-display text-xl italic sm:text-[22px] ${solid ? "text-gold" : "text-gold/90"}`}>&amp;</span>A
             </span>
           </button>
 

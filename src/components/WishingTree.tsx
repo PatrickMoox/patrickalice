@@ -137,9 +137,14 @@ export default function WishingTree() {
     const dx = tx - sx;
     const dy = ty - sy;
 
+    const initial = wish.name.trim().charAt(0).toUpperCase().replace(/[<>&"']/g, "");
     const el = document.createElement("div");
     el.style.cssText = `position:fixed;z-index:90;left:${sx - 13}px;top:${sy - 15}px;width:26px;height:30px;pointer-events:none;`;
-    el.innerHTML = `<svg viewBox="0 0 22 26" width="26" height="30"><path d="${LEAF_PATH}" fill="#8FBF7F" stroke="rgba(34,49,42,.35)" stroke-width=".7"/><path d="M11 4 L 11 20" stroke="rgba(250,248,240,.6)" stroke-width=".8" stroke-linecap="round"/></svg>`;
+    el.innerHTML = `<svg viewBox="0 0 22 26" width="26" height="30"><path d="${LEAF_PATH}" fill="#8FBF7F" stroke="rgba(34,49,42,.35)" stroke-width=".7"/><path d="M11 4 L 11 20" stroke="rgba(250,248,240,.6)" stroke-width=".8" stroke-linecap="round"/>${
+      initial
+        ? `<text x="11" y="15.5" text-anchor="middle" font-size="10" font-weight="600" font-family="'Cormorant Garamond', serif" fill="rgba(250,248,240,.95)" stroke="rgba(34,49,42,.35)" stroke-width=".4">${initial}</text>`
+        : ""
+    }</svg>`;
     document.body.appendChild(el);
 
     const anim = el.animate(
@@ -237,6 +242,21 @@ export default function WishingTree() {
                               strokeWidth={sel ? 1.6 : 0.7}
                             />
                             <path d="M0 1 L 0 18 M0 6 L -3.4 4 M0 10 L 3.6 8 M0 14 L -3.2 12" transform="translate(0 0)" stroke="rgba(250,248,240,.55)" strokeWidth="0.8" strokeLinecap="round" fill="none" />
+                            {/* sender's initial */}
+                            <text
+                              x="0"
+                              y="13.5"
+                              textAnchor="middle"
+                              fontSize="9.5"
+                              fontWeight="600"
+                              fontFamily="'Cormorant Garamond', serif"
+                              fill="rgba(250,248,240,0.95)"
+                              stroke="rgba(34,49,42,0.35)"
+                              strokeWidth="0.35"
+                              style={{ pointerEvents: "none" }}
+                            >
+                              {w.name.trim().charAt(0).toUpperCase()}
+                            </text>
                           </g>
                         </g>
                       );

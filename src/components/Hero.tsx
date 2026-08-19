@@ -110,14 +110,14 @@ export default function Hero() {
           Together with their families
         </p>
 
-        {/* names */}
-        <h1 className="mt-7 flex flex-wrap items-baseline justify-center gap-x-5 gap-y-1">
-          <span className="font-script text-[17vw] leading-[1.15] text-ivory drop-shadow-[0_2px_18px_rgba(34,49,42,0.45)] sm:text-7xl lg:text-8xl">
-            {SITE.partner1Short}
+        {/* names — full names, stacked like an invitation */}
+        <h1 className="mt-7 flex flex-col items-center">
+          <span className="font-script text-[12.5vw] leading-[1.2] text-ivory drop-shadow-[0_2px_18px_rgba(34,49,42,0.45)] sm:text-6xl lg:text-7xl">
+            {SITE.heroName1}
           </span>
-          <span className="font-display text-4xl italic text-gold sm:text-5xl">&amp;</span>
-          <span className="font-script text-[17vw] leading-[1.15] text-ivory drop-shadow-[0_2px_18px_rgba(34,49,42,0.45)] sm:text-7xl lg:text-8xl">
-            {SITE.partner2Short}
+          <span className="font-display my-1 text-3xl italic text-gold sm:text-4xl">&amp;</span>
+          <span className="font-script text-[12.5vw] leading-[1.2] text-ivory drop-shadow-[0_2px_18px_rgba(34,49,42,0.45)] sm:text-6xl lg:text-7xl">
+            {SITE.heroName2}
           </span>
         </h1>
 
