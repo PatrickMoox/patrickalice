@@ -51,7 +51,7 @@ export const SITE = {
       paste it below, e.g.
       "https://aime-and-alice-default-rtdb.europe-west1.firebasedatabase.app"
    The tree then syncs live between ALL visitors, from any host.     */
-export const FIREBASE_RTDB_URL = ""; // ← paste your Firebase database URL here
+export const FIREBASE_RTDB_URL = "https://patrickandalice-2e8a9-default-rtdb.europe-west1.firebasedatabase.app/"; // ← paste your Firebase database URL here
 
 export const WISH_API = ""; // e.g. "http://localhost:8787/api"
 
