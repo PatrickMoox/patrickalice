@@ -2,44 +2,51 @@
 # Dependencies
 node_modules/
 
-# Build outputs
-dist/
-build/
-target/
-
-# Logs
-*.log
-
 # Environment variables
 .env
 .env.local
-*.env.*
+.env.*
 
 # IDE files
 .vscode/
 .idea/
 *.swp
 *.swo
-*.tmp
 
-# Python specific
+# Logs
+*.log
+
+# Build artifacts
+dist/
+build/
+target/
+
+# Python cache
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
-.Python
-*.so
 
-# Compiled files
-*.o
-*.obj
-*.exe
-*.dll
-*.so
-*.a
-*.out
+# Temporary files
+*.tmp
+*.temp
 
-# Archives
+# OS files
+.DS_Store
+Thumbs.db
+
+# Coverage reports
+coverage/
+htmlcov/
+.coverage
+
+# Test caches
+.pytest_cache/
+.mypy_cache/
+.nyc_output/
+coverage/
+
+# Compressed files
 *.zip
 *.gz
 *.tar
@@ -58,17 +65,4 @@ __pycache__/
 *.Z
 *.lz
 *.lzo
-*.tar.gz
-*.tar.bz2
-*.tar.xz
-*.tar.zst
-
-# Coverage
-coverage/
-htmlcov/
-.coverage
-
-# System files
-.DS_Store
-Thumbs.db
 ```
